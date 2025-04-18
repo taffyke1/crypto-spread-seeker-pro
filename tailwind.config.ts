@@ -52,6 +52,17 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Crypto theme colors
+				crypto: {
+					green: '#00c853',
+					red: '#ff3d71',
+					blue: '#1a73e8',
+					yellow: '#ffaa00',
+					purple: '#9c27b0',
+					gray: '#2d3748',
+					'gray-light': '#e2e8f0',
+					'gray-dark': '#1a202c',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +95,36 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-green': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5', backgroundColor: 'rgba(0, 200, 83, 0.15)' }
+				},
+				'pulse-red': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5', backgroundColor: 'rgba(255, 61, 113, 0.15)' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'slide-up': {
+					'0%': { transform: 'translateY(10px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'slide-right': {
+					'0%': { transform: 'translateX(-10px)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-green': 'pulse-green 2s ease-in-out infinite',
+				'pulse-red': 'pulse-red 2s ease-in-out infinite',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'slide-up': 'slide-up 0.3s ease-out',
+				'slide-right': 'slide-right 0.3s ease-out'
 			}
 		}
 	},
