@@ -5,48 +5,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 220 17% 12%;
+    --foreground: 220 10% 94%;
+    --card: 220 17% 14%;
+    --card-foreground: 220 10% 94%;
+    --popover: 220 17% 12%;
+    --popover-foreground: 220 10% 94%;
+    --primary: 203 79% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 25% 22%;
+    --secondary-foreground: 220 10% 94%;
+    --muted: 215 25% 18%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 215 25% 22%;
+    --accent-foreground: 220 10% 94%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0.75rem;
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 203 79% 59%;
+    --radius: 0.5rem;
   }
 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 16%;
+    --primary: 203 79% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 220 20% 16%;
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 20% 46%;
+    --accent: 220 20% 94%;
+    --accent-foreground: 220 20% 16%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 203 79% 59%;
   }
 }
 
@@ -74,35 +74,60 @@
   }
   
   .crypto-indicator-green {
-    @apply bg-green-500;
+    @apply bg-crypto-green;
   }
   
   .crypto-indicator-red {
-    @apply bg-red-500;
+    @apply bg-crypto-red;
   }
   
   .crypto-indicator-yellow {
-    @apply bg-yellow-500;
+    @apply bg-crypto-yellow;
   }
 
   .text-crypto-green {
-    @apply text-green-500;
+    @apply text-crypto-green;
   }
 
   .text-crypto-red {
-    @apply text-red-500;
+    @apply text-crypto-red;
   }
 
   .text-crypto-yellow {
-    @apply text-yellow-500;
+    @apply text-crypto-yellow;
   }
 
   .text-crypto-blue {
-    @apply text-blue-500;
+    @apply text-crypto-blue;
   }
 
   .text-crypto-purple {
-    @apply text-purple-500;
+    @apply text-crypto-purple;
+  }
+  
+  /* Enhanced UI for arbitrage scanner */
+  .arbitrage-highlight {
+    @apply border-l-4 border-primary pl-3;
+  }
+  
+  .arbitrage-card {
+    @apply bg-gradient-to-b from-card to-card/80 hover:from-card/80 hover:to-card transition-all duration-300 border-border/50;
+  }
+  
+  .market-metrics {
+    @apply grid grid-cols-2 sm:grid-cols-4 gap-1 md:gap-3 rounded-md bg-secondary/20 p-3;
+  }
+  
+  .metric-item {
+    @apply flex flex-col text-center p-2 rounded-md bg-secondary/30;
+  }
+  
+  .glassmorphism {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 shadow-md;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-b from-background to-card/80;
   }
 }
 
@@ -132,3 +157,38 @@ html.dark * {
 .dark [data-radix-popper-content-wrapper] {
   @apply bg-background border-border;
 }
+
+/* Crypto theme specific styles */
+.alert-badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+}
+
+.alert-badge-red {
+  @apply bg-crypto-red/10 text-crypto-red;
+}
+
+.alert-badge-green {
+  @apply bg-crypto-green/10 text-crypto-green;
+}
+
+.alert-badge-yellow {
+  @apply bg-crypto-yellow/10 text-crypto-yellow;
+}
+
+.alert-badge-blue {
+  @apply bg-crypto-blue/10 text-crypto-blue;
+}
+
+/* Chart customizations for crypto theme */
+.chart-container {
+  @apply rounded-md border border-border/50 bg-card/30 p-4;
+}
+
+.grid-lines {
+  @apply stroke-border/30;
+}
+
+.data-point {
+  @apply fill-primary stroke-primary/80 stroke-2;
+}
+

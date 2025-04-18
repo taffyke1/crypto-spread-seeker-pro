@@ -33,10 +33,8 @@ export function Layout() {
   
   // Load and apply theme from localStorage on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
-    }
+    // Force dark theme to match arbitragescanner.io
+    setTheme("dark");
   }, [setTheme]);
 
   const toggleSidebar = () => {
@@ -50,7 +48,7 @@ export function Layout() {
       </div>
       <div className="flex flex-col flex-1 overflow-hidden">
         <Header sidebarToggle={toggleSidebar} />
-        <main className="flex-1 overflow-y-auto p-4 lg:p-6">
+        <main className="flex-1 overflow-y-auto p-4 lg:p-6 bg-gradient-to-b from-background to-background/80">
           <Outlet />
         </main>
       </div>

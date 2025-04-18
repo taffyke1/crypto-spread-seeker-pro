@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,13 +53,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Crypto theme colors
+				// Crypto theme colors matching arbitragescanner.io
 				crypto: {
-					green: '#00c853',
-					red: '#ff3d71',
-					blue: '#1a73e8',
-					yellow: '#ffaa00',
-					purple: '#9c27b0',
+					green: '#00e396',
+					red: '#ff3b69',
+					blue: '#00b1f2',
+					yellow: '#feb019',
+					purple: '#775dd0',
 					gray: '#2d3748',
 					'gray-light': '#e2e8f0',
 					'gray-dark': '#1a202c',
@@ -98,11 +99,15 @@ export default {
 				},
 				'pulse-green': {
 					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.5', backgroundColor: 'rgba(0, 200, 83, 0.15)' }
+					'50%': { opacity: '0.5', backgroundColor: 'rgba(0, 227, 150, 0.15)' }
 				},
 				'pulse-red': {
 					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.5', backgroundColor: 'rgba(255, 61, 113, 0.15)' }
+					'50%': { opacity: '0.5', backgroundColor: 'rgba(255, 59, 105, 0.15)' }
+				},
+				'pulse-blue': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5', backgroundColor: 'rgba(0, 177, 242, 0.15)' }
 				},
 				'fade-in': {
 					'0%': { opacity: '0' },
@@ -115,6 +120,10 @@ export default {
 				'slide-right': {
 					'0%': { transform: 'translateX(-10px)', opacity: '0' },
 					'100%': { transform: 'translateX(0)', opacity: '1' }
+				},
+				'number-change': {
+					'0%': { opacity: '0', transform: 'translateY(5px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				}
 			},
 			animation: {
@@ -122,9 +131,18 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-green': 'pulse-green 2s ease-in-out infinite',
 				'pulse-red': 'pulse-red 2s ease-in-out infinite',
+				'pulse-blue': 'pulse-blue 2s ease-in-out infinite',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'slide-up': 'slide-up 0.3s ease-out',
-				'slide-right': 'slide-right 0.3s ease-out'
+				'slide-right': 'slide-right 0.3s ease-out',
+				'number-change': 'number-change 0.3s ease-out'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'crypto-gradient': 'linear-gradient(to right, #00e396, #00b1f2)',
+				'alert-gradient': 'linear-gradient(to right, #ff3b69, #feb019)',
+				'card-gradient': 'linear-gradient(to bottom, rgba(38, 43, 54, 0.8), rgba(28, 32, 40, 0.9))'
 			}
 		}
 	},
