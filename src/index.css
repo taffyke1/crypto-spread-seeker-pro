@@ -55,7 +55,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-200;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
@@ -66,7 +66,7 @@
   }
   
   .stats-card {
-    @apply p-4 rounded-lg border bg-card shadow-sm;
+    @apply p-4 rounded-lg border bg-card shadow-sm transition-colors duration-200;
   }
   
   .crypto-indicator {
@@ -119,4 +119,16 @@
 
 .rotate-180 {
   --tw-rotate: 180deg;
+}
+
+/* Dark mode transition improvements */
+html.dark * {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Dropdown menu dark mode fixes */
+.dark [data-radix-popper-content-wrapper] {
+  @apply bg-background border-border;
 }

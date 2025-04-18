@@ -31,7 +31,7 @@ export function Layout() {
     }
   }, [sidebarOpen, isMobile]);
   
-  // Restore theme from localStorage on mount
+  // Load and apply theme from localStorage on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
