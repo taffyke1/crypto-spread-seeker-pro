@@ -1,11 +1,43 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
+import { useMobile } from "@/hooks/use-mobile";
+import { useTheme } from "next-themes";
 
 export function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const isMobile = useMobile();
+  const { theme, setTheme } = useTheme();
+
+  // Handle sidebar state based on screen size
+  useEffect(() => {
+    if (isMobile) {
+      setSidebarOpen(false);
+    } else {
+      // Try to restore sidebar state from localStorage
+      const savedState = localStorage.getItem("sidebarOpen");
+      if (savedState) {
+        setSidebarOpen(savedState === "true");
+      }
+    }
+  }, [isMobile]);
+  
+  // Persist sidebar state
+  useEffect(() => {
+    if (!isMobile) {
+      localStorage.setItem("sidebarOpen", String(sidebarOpen));
+    }
+  }, [sidebarOpen, isMobile]);
+  
+  // Restore theme from localStorage on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, [setTheme]);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -13,7 +45,7 @@ export function Layout() {
 
   return (
     <div className="flex h-screen w-full bg-background">
-      <div className={`${sidebarOpen ? "block" : "hidden"} md:block`}>
+      <div className={`${sidebarOpen ? "block" : "hidden"} md:block transition-all duration-300`}>
         <Sidebar />
       </div>
       <div className="flex flex-col flex-1 overflow-hidden">
