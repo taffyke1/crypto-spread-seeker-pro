@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   AlertCircle, 
@@ -31,7 +30,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-// Sample trading strategies
 const initialStrategies = [
   {
     id: "strategy-1",
@@ -61,7 +59,6 @@ export default function BotDashboard() {
   const [isGlobalActive, setIsGlobalActive] = useState(false);
   const { toast } = useToast();
   
-  // Toggle a specific strategy
   const handleToggleStrategy = (id: string, active: boolean) => {
     setStrategies(prev => 
       prev.map(strategy => 
@@ -75,7 +72,6 @@ export default function BotDashboard() {
     });
   };
   
-  // Delete a strategy
   const handleDeleteStrategy = (id: string) => {
     setStrategies(prev => prev.filter(strategy => strategy.id !== id));
     
@@ -86,7 +82,6 @@ export default function BotDashboard() {
     });
   };
   
-  // Toggle all strategies globally
   const handleGlobalToggle = (active: boolean) => {
     setIsGlobalActive(active);
     setStrategies(prev => 
@@ -100,7 +95,6 @@ export default function BotDashboard() {
     });
   };
   
-  // Add a new strategy
   const handleAddStrategy = () => {
     const newStrategy = {
       id: `strategy-${strategies.length + 1}`,
@@ -180,7 +174,7 @@ export default function BotDashboard() {
         </div>
       </div>
       
-      <Alert variant="warning">
+      <Alert>
         <AlertCircle className="h-4 w-4" />
         <AlertTitle>Trading Risk Warning</AlertTitle>
         <AlertDescription>

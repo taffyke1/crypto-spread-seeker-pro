@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
-import { useMobile } from "@/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useTheme } from "next-themes";
 
 export function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
   const { theme, setTheme } = useTheme();
 
   // Handle sidebar state based on screen size
