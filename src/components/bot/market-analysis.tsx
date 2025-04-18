@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { 
   ArrowDownFromLine, 
@@ -93,10 +92,10 @@ export function MarketAnalysis() {
   }, [selectedPair, timeframe]);
   
   return (
-    <Card className="h-full">
+    <Card className="w-full">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-xl font-bold">Market Analysis</CardTitle>
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Select value={selectedPair} onValueChange={setSelectedPair}>
             <SelectTrigger className="w-[140px]">
               <SelectValue placeholder="Select pair" />
@@ -135,7 +134,7 @@ export function MarketAnalysis() {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-4 gap-4 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div className="stats-card">
             <div className="flex items-center justify-between mb-1">
               <span className="text-xs font-medium text-muted-foreground">Price</span>
@@ -241,7 +240,7 @@ export function MarketAnalysis() {
           </ChartContainer>
         </div>
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 rounded-lg border bg-card">
             <div className="flex items-center space-x-2 mb-2">
               <LineChart className="h-4 w-4 text-primary" />
